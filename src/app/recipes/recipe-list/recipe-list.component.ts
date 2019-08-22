@@ -8,7 +8,9 @@ import {Recipe} from '../recipes.model';
 })
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [
-    new Recipe('Recipe 1', 'Description of Recipe 1', 'imagePath'),
+    // tslint:disable-next-line:max-line-length
+    new Recipe('Recipe 1', 'Description of Recipe 1', 'https://cdn.apartmenttherapy.info/image/upload/v1564775676/k/Photo/Recipes/2019-08-how-to-juiciest-turkey-meatballs/How-to-Make-the-Best-Juiciest-Turkey-Meatballs_055.jpg'),
+
     // tslint:disable-next-line:max-line-length
     new Recipe('Tasty Recipe', 'A tasty recipe', 'https://www.simplyrecipes.com/wp-content/uploads/2019/08/summer-chicken-panzanella-Lead3-768x512.jpg')
   ]
