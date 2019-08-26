@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularCourseProject';
+  loadedPage = 'recipes';
+
+  navigateTo(targetPage: string){
+    this.loadedPage = targetPage;
+  }
 }
