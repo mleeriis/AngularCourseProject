@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Recipe} from '../recipes.model';
+import {RecipesService} from '../recipes.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,24 +8,19 @@ import {Recipe} from '../recipes.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  @Output() recipeWasSelected = new EventEmitter<Recipe>();
+  selectedRecipe: Recipe;
 
-  recipes: Recipe[] = [
-    // tslint:disable-next-line:max-line-length
-    new Recipe('Recipe 1', 'Description of Recipe 1', 'https://cdn.apartmenttherapy.info/image/upload/v1564775676/k/Photo/Recipes/2019-08-how-to-juiciest-turkey-meatballs/How-to-Make-the-Best-Juiciest-Turkey-Meatballs_055.jpg'),
+  recipes: Recipe[];
 
-    // tslint:disable-next-line:max-line-length
-    new Recipe('Tasty Recipe', 'A tasty recipe', 'https://www.simplyrecipes.com/wp-content/uploads/2019/08/summer-chicken-panzanella-Lead3-768x512.jpg')
-  ]
-
-  constructor() {
+  constructor(private RecipesService: RecipesService) {
   }
 
   ngOnInit() {
+    this.recipes = this.RecipesService.getRecipes();
   }
 
-  onRecipeSelected(selectedRecipe: Recipe){
-    this.recipeWasSelected.emit(selectedRecipe);
+  onRecipeSelected(){
+   // this.RecipesService.recipeSelected.emit(this.selectedRecipe);
   }
 
 }
